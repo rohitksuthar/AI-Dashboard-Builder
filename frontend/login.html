@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Login — InsightBoard</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<div class="auth-shell">
+  <div class="auth-visual">
+    <a href="index.html" class="brand"><span class="brand-mark"><i class="fa-solid fa-chart-line"></i></span>InsightBoard</a>
+    <div class="auth-quote">
+      <h2>"Turn your business data into insights."</h2>
+      <p>Sign in to pick up your dashboards, dataset history and saved predictions right where you left off.</p>
+    </div>
+    <div class="auth-visual-stats">
+      <div><span class="num">120+</span><span class="label">Sample records</span></div>
+      <div><span class="num">12</span><span class="label">Chart types</span></div>
+      <div><span class="num">0</span><span class="label">API keys needed</span></div>
+    </div>
+  </div>
+
+  <div class="auth-form-wrap">
+    <div class="auth-card">
+      <a href="index.html" class="brand"><span class="brand-mark"><i class="fa-solid fa-chart-line"></i></span>InsightBoard</a>
+      <h1>Welcome back</h1>
+      <p>Log in to continue to your dashboard.</p>
+
+      <form id="loginForm" novalidate>
+        <div class="field" id="emailField">
+          <label for="email">Email address</label>
+          <div class="input-wrap"><input type="email" id="email" name="email" placeholder="you@company.com" autocomplete="email" /></div>
+          <span class="error-msg">Enter a valid email address.</span>
+        </div>
+
+        <div class="field" id="passwordField">
+          <label for="password">Password</label>
+          <div class="input-wrap">
+            <input type="password" id="password" name="password" placeholder="Enter your password" autocomplete="current-password" />
+            <button type="button" class="field-toggle-visibility" data-target="password" aria-label="Show password"><i class="fa-regular fa-eye"></i></button>
+          </div>
+          <span class="error-msg">Password must be at least 6 characters.</span>
+        </div>
+
+        <div class="field-row-between">
+          <label class="checkbox-row" style="margin:0"><input type="checkbox" id="rememberMe" /> Remember me</label>
+          <a href="#" class="link-accent" id="forgotPasswordLink">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block" id="loginSubmitBtn">Login</button>
+
+        <div class="divider-text">or</div>
+
+        <button type="button" class="btn btn-outline btn-block" id="googleLoginBtn"><i class="fa-brands fa-google"></i> Continue with Google</button>
+      </form>
+
+      <p class="auth-foot-link">Don't have an account? <a href="signup.html" class="link-accent">Create Account</a></p>
+      <p class="auth-foot-link" style="margin-top:.5rem"><a href="generated-dashboard.html?demo=1" class="text-faint">Skip for now — view the demo dashboard</a></p>
+    </div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>
