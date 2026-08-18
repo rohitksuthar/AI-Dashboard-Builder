@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>InsightBoard — Turn Your Business Data Into Insights</title>
+<meta name="description" content="Upload your business data and instantly generate interactive dashboards, KPIs, visualizations and business insights." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22%23232A63%22/><text x=%2250%22 y=%2266%22 font-size=%2255%22 text-anchor=%22middle%22 fill=%22%2300A99A%22 font-family=%22sans-serif%22>I</text></svg>" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="brand-mark"><i class="fa-solid fa-chart-line"></i></span>InsightBoard</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="#features">Features</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#about">About</a>
+    </nav>
+    <div class="header-actions">
+      <a href="login.html" class="btn btn-ghost">Login</a>
+      <a href="upload.html" class="btn btn-primary">Get Started</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div>
+      <span class="eyebrow"><span class="dot"></span>AI-STYLE BUSINESS ANALYTICS · NO SIGN-UP NEEDED FOR THE DEMO</span>
+      <h1>Turn Your Business Data Into <span class="accent">Actionable Insights</span></h1>
+      <p class="lead">Upload your business data and instantly generate interactive dashboards, KPIs, visualizations and intelligent business insights — no paid APIs, no waiting on a backend.</p>
+      <div class="hero-actions">
+        <a href="upload.html" class="btn btn-primary">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="generated-dashboard.html?demo=1" class="btn btn-outline" id="viewDemoBtn"><i class="fa-solid fa-play"></i> View Demo</a>
+      </div>
+    </div>
+    <div class="hero-preview">
+      <div class="hero-preview-top">
+        <div class="hero-preview-dots"><span></span><span></span><span></span></div>
+        <span class="hero-preview-badge">LIVE PREVIEW</span>
+      </div>
+      <div class="hero-kpi-row">
+        <div class="hero-kpi"><div class="label">Revenue</div><div class="value">₹24.8L</div></div>
+        <div class="hero-kpi"><div class="label">Profit</div><div class="value up">+18.5%</div></div>
+        <div class="hero-kpi"><div class="label">Orders</div><div class="value">1,284</div></div>
+      </div>
+      <div class="hero-chart-wrap">
+        <svg viewBox="0 0 340 120" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="sparkFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#00A99A" stop-opacity="0.35"/>
+              <stop offset="100%" stop-color="#00A99A" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <polygon class="hero-sparkline-fill" points="0,95 30,80 60,88 90,60 120,68 150,45 180,55 210,30 240,40 270,20 300,32 340,15 340,120 0,120" fill="url(#sparkFill)"/>
+          <polyline class="hero-sparkline-path" points="0,95 30,80 60,88 90,60 120,68 150,45 180,55 210,30 240,40 270,20 300,32 340,15" fill="none" stroke="#00A99A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</body>
+</html>
