@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Create Account — InsightBoard</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<div class="auth-shell">
+  <div class="auth-visual">
+    <a href="index.html" class="brand"><span class="brand-mark"><i class="fa-solid fa-chart-line"></i></span>InsightBoard</a>
+    <div class="auth-quote">
+      <h2>Set up your workspace in under a minute.</h2>
+      <p>No credit card, no API key — just a name, an email and a password.</p>
+    </div>
+    <div class="auth-visual-stats">
+      <div><span class="num">Free</span><span class="label">To try</span></div>
+      <div><span class="num">100%</span><span class="label">Local demo data</span></div>
+      <div><span class="num">5 min</span><span class="label">To first dashboard</span></div>
+    </div>
+  </div>
+
+  <div class="auth-form-wrap">
+    <div class="auth-card">
+      <a href="index.html" class="brand"><span class="brand-mark"><i class="fa-solid fa-chart-line"></i></span>InsightBoard</a>
+      <h1>Create your account</h1>
+      <p>Start turning your data into dashboards.</p>
+
+      <form id="signupForm" novalidate class="row g-0" autocomplete="off">
+        <div class="field" id="nameField">
+          <label for="fullName">Full name</label>
+          <div class="input-wrap"><input type="text" id="fullName" name="fullName" placeholder="Ananya Iyer" autocomplete="name" /></div>
+          <span class="error-msg">Please enter your full name.</span>
+        </div>
+
+        <div class="field" id="emailField">
+          <label for="email">Email address</label>
+          <div class="input-wrap"><input type="email" id="email" name="email" placeholder="you@company.com" autocomplete="email" /></div>
+          <span class="error-msg">Enter a valid email address.</span>
+        </div>
+
+        <div class="field" id="passwordField">
+          <label for="password">Password</label>
+          <div class="input-wrap">
+            <input type="password" id="password" name="password" placeholder="Create a password" autocomplete="new-password" />
+            <button type="button" class="field-toggle-visibility" data-target="password" aria-label="Show password"><i class="fa-regular fa-eye"></i></button>
+          </div>
+          <div class="password-strength">
+            <div class="password-strength-bar"><span id="strengthBarFill"></span></div>
+            <span class="password-strength-label" id="strengthLabel">Use 8+ characters with a mix of letters, numbers &amp; symbols.</span>
+          </div>
+          <span class="error-msg">Password must be at least 6 characters.</span>
+        </div>
+
+        <div class="field" id="confirmField">
+          <label for="confirmPassword">Confirm password</label>
+          <div class="input-wrap">
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter your password" autocomplete="new-password" />
+            <button type="button" class="field-toggle-visibility" data-target="confirmPassword" aria-label="Show password"><i class="fa-regular fa-eye"></i></button>
+          </div>
+          <span class="error-msg">Passwords do not match.</span>
+        </div>
+
+        <div class="field" id="termsField">
+          <label class="checkbox-row"><input type="checkbox" id="agreeTerms" /> I agree to the terms and conditions.</label>
+          <span class="error-msg">You must accept the terms to continue.</span>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block" id="signupSubmitBtn">Create Account</button>
+      </form>
+
+      <p class="auth-foot-link">Already have an account? <a href="login.html" class="link-accent">Login</a></p>
+    </div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>
