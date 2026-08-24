@@ -1,0 +1,91 @@
+/* ==========================================================================
+   InsightBoard — Responsive rules
+   Breakpoints: 1280 / 1024 / 768 / 480
+   ========================================================================== */
+
+/* ---- Large desktop tightening ---- */
+@media (max-width: 1280px) {
+    .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+    .kpi-grid.kpi-grid-6 { grid-template-columns: repeat(3, 1fr); }
+    .stat-grid { grid-template-columns: repeat(3, 1fr); }
+    .features-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  
+  /* ---- Tablet / small laptop ---- */
+  @media (max-width: 1024px) {
+    .hero .container { grid-template-columns: 1fr; }
+    .hero-preview { transform: none; margin-top: 1rem; }
+    .steps-row { grid-template-columns: repeat(2, 1fr); row-gap: 2rem; }
+    .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    .chart-grid, .chart-grid.cols-3 { grid-template-columns: 1fr; }
+    .auth-shell { grid-template-columns: 1fr; }
+    .auth-visual { display: none; }
+    .prediction-hero { grid-template-columns: 1fr; }
+    .settings-grid { grid-template-columns: 1fr; }
+    .settings-tabs { position: static; flex-direction: row; overflow-x: auto; }
+  }
+  
+  /* ---- Tablet (768) ---- */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-links.mobile-open {
+      display: flex; flex-direction: column; position: absolute; top: 76px; left: 0; right: 0;
+      background: var(--color-surface); border-bottom: 1px solid var(--color-border);
+      padding: 1rem 24px 1.5rem; gap: 1rem; box-shadow: var(--shadow-md);
+    }
+    .nav-toggle { display: block; }
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .kpi-grid.kpi-grid-6 { grid-template-columns: repeat(2, 1fr); }
+    .stat-grid { grid-template-columns: repeat(2, 1fr); }
+    .features-grid { grid-template-columns: 1fr; }
+    .insight-grid { grid-template-columns: 1fr; }
+    .form-row-2 { grid-template-columns: 1fr; }
+    .cta-section { margin: 0 16px; }
+  
+    /* Sidebar becomes an off-canvas drawer */
+    .sidebar {
+      position: fixed; left: 0; top: 0; transform: translateX(-100%); width: 260px; height: 100vh; z-index: 200;
+    }
+    body.sidebar-open .sidebar { transform: translateX(0); }
+    body.sidebar-collapsed .sidebar { width: 260px; }
+    body.sidebar-collapsed .sidebar-brand span,
+    body.sidebar-collapsed .sidebar-nav a span,
+    body.sidebar-collapsed .nav-group-label,
+    body.sidebar-collapsed .sidebar-foot a span { display: inline; }
+    body.sidebar-collapsed .sidebar-nav a { justify-content: flex-start; }
+    .sidebar-collapse-btn { display: none; }
+    .mobile-menu-btn { display: flex; align-items: center; justify-content: center; }
+    .sidebar-backdrop {
+      display: none; position: fixed; inset: 0; background: rgba(15,18,40,.5); z-index: 190;
+    }
+    body.sidebar-open .sidebar-backdrop { display: block; }
+  
+    .topnav-search { display: none; }
+    .main-content { padding: 1.25rem 1rem 3rem; }
+    .page-head { flex-direction: column; align-items: stretch; }
+    .page-head-actions .btn { flex: 1; }
+  }
+  
+  /* ---- Mobile (480 / 375) ---- */
+  @media (max-width: 480px) {
+    .container { padding: 0 16px; }
+    .kpi-grid, .stat-grid { grid-template-columns: 1fr 1fr; gap: .75rem; }
+    .hero { padding: 3rem 0 3.5rem; }
+    .hero-actions .btn, .hero-actions { width: 100%; }
+    .hero-actions { flex-direction: column; }
+    section { padding: 3.25rem 0; }
+    .steps-row { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+    .auth-form-wrap { padding: 1.5rem 1.25rem; }
+    .auth-card .brand { display: flex; }
+    .topnav { padding: 0 1rem; }
+    .topnav-user .user-meta { display: none; }
+    .kpi-card, .stat-card { padding: 1rem; }
+    .prediction-figure .predicted-value { font-size: 2rem; }
+    table.data-table { min-width: 520px; }
+    .modal-box { padding: 1.25rem; }
+    .toast-stack { left: 12px; right: 12px; top: 12px; }
+    .toast { min-width: 0; max-width: none; width: 100%; }
+  }
+  

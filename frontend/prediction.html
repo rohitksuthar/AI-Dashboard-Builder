@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sales Prediction — InsightBoard</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<div class="app-shell">
+  <div id="sidebar-root"></div>
+
+  <div style="flex:1;min-width:0;display:flex;flex-direction:column">
+    <div id="topnav-root"></div>
+
+    <main class="main-content">
+
+      <div id="emptyStateWrap" class="card hidden">
+        <div class="empty-state">
+          <div class="empty-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <h3>No data to predict from yet</h3>
+          <p>Upload a CSV or use the sample dataset — the more months of history, the better the forecast.</p>
+          <a href="upload.html" class="btn btn-primary">Upload Dataset</a>
+        </div>
+      </div>
+
+      <div id="predictionContent" class="hidden">
+        <div class="page-head">
+          <div>
+            <h1>Sales Prediction</h1>
+            <p>Use historical sales data to estimate future sales.</p>
+          </div>
+        </div>
+
+        <div class="prediction-hero">
+          <div class="card prediction-figure">
+            <div class="kpi-label">Predicted Next Month Sales</div>
+            <div class="predicted-value" id="predictedValue">₹0</div>
+            <div class="prediction-meta-list">
+              <div><span>Model</span><span>Linear Regression</span></div>
+              <div><span>Training Records</span><span id="trainingRecords">0</span></div>
+              <div><span>Prediction Status</span><span class="status-pill completed"><i class="fa-solid fa-check"></i> Completed</span></div>
+            </div>
+          </div>
+          <div class="card chart-card tall">
+            <div class="card-head"><div><h3>Historical Sales</h3><div class="card-sub">Monthly totals with next-month forecast</div></div></div>
+            <div class="chart-canvas-wrap"><canvas id="predictionChart"></canvas></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><div><h3>How this works</h3></div></div>
+          <p style="margin:0">InsightBoard aggregates sales by month, then fits a simple linear regression line (y = slope × month + intercept) over that trend. The line's value one step beyond the last known month becomes the prediction. This intentionally avoids heavier machine learning — the same interface is designed to plug into a real Python/scikit-learn service later without changing the UI.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/prediction.js"></script>
+</body>
+</html>
