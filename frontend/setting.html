@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<script>
+  // Auth guard — runs before the page renders. No valid session, no access.
+  // Also re-checks on bfcache restore (browser back/forward button after
+  // logout), which would otherwise show a stale cached page without
+  // re-running this script.
+  (function () {
+    function guardCheck() {
+      if (!localStorage.getItem("ib_token")) {
+        window.location.replace("login.html");
+      }
+    }
+    guardCheck();
+    window.addEventListener("pageshow", function (e) {
+      if (e.persisted) guardCheck();
+    });
+  })();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Settings — InsightBoard</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<div class="app-shell">
+  <div id="sidebar-root"></div>
+
+  <div style="flex:1;min-width:0;display:flex;flex-direction:column">
+    <div id="topnav-root"></div>
+
+    <main class="main-content">
+      <div class="page-head">
+        <div><h1>Settings</h1><p>Manage your profile, preferences and workspace defaults.</p></div>
+      </div>
+
+      <div class="settings-grid">
+        <div class="settings-tabs">
+          <button class="active" data-tab="profile"><i class="fa-solid fa-user"></i> Profile</button>
+          <button data-tab="preferences"><i class="fa-solid fa-sliders"></i> Preferences</button>
+          <button data-tab="dashboard"><i class="fa-solid fa-chart-pie"></i> Dashboard</button>
+          <button data-tab="security"><i class="fa-solid fa-lock"></i> Security</button>
+        </div>
+
+        <div>
+          <div class="card settings-panel active" id="panel-profile">
+            <div class="card-head"><div><h3>Profile</h3></div></div>
+            <div class="avatar-upload">
+              <div class="avatar-lg" id="profileAvatarInitials">GU</div>
+              <div>
+                <button class="btn btn-outline btn-sm" type="button" id="changePhotoBtn">Change photo</button>
+                <p style="margin:.4rem 0 0;font-size:.78rem">UI only — photo storage isn't wired to a backend.</p>
+              </div>
+            </div>
+            <form id="profileForm">
+              <div class="form-row-2">
+                <div class="field"><label for="profileName">Name</label><div class="input-wrap"><input type="text" id="profileName" /></div></div>
+                <div class="field"><label for="profileEmail">Email</label><div class="input-wrap"><input type="email" id="profileEmail" /></div></div>
+              </div>
+              <button type="submit" class="btn btn-primary">Save Profile</button>
+            </form>
+          </div>
+
+          <div class="card settings-panel" id="panel-preferences">
+            <div class="card-head"><div><h3>Preferences</h3></div></div>
+            <div class="toggle-row">
+              <div><div class="toggle-label">Dark Mode</div><div class="toggle-desc">Switch the whole app to a dark theme.</div></div>
+              <div class="theme-switch" role="switch" aria-label="Toggle dark mode" tabindex="0"><span class="knob"><i class="fa-solid fa-moon"></i></span></div>
+            </div>
+            <div class="toggle-row">
+              <div><div class="toggle-label">Notifications</div><div class="toggle-desc">Get a toast when a dashboard finishes generating.</div></div>
+              <div class="toggle-switch" id="notifToggle" role="switch" aria-label="Toggle notifications" tabindex="0"><span class="knob"><i class="fa-solid fa-bell"></i></span></div>
+            </div>
+          </div>
+
+          <div class="card settings-panel" id="panel-dashboard">
+            <div class="card-head"><div><h3>Dashboard Defaults</h3></div></div>
+            <div class="form-row-2">
+              <div class="field">
+                <label for="defaultRange">Default date range</label>
+                <select id="defaultRange">
+                  <option>Last 30 days</option>
+                  <option selected>Last 90 days</option>
+                  <option>Last 12 months</option>
+                  <option>All time</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="defaultChart">Default chart type</label>
+                <select id="defaultChart">
+                  <option selected>Line</option>
+                  <option>Bar</option>
+                  <option>Doughnut</option>
+                  <option>Horizontal Bar</option>
+                </select>
+              </div>
+            </div>
+            <button class="btn btn-primary" id="saveDashboardDefaultsBtn">Save Defaults</button>
+          </div>
+
+          <div class="card settings-panel" id="panel-security">
+            <div class="card-head"><div><h3>Change Password</h3></div></div>
+            <form id="securityForm">
+              <div class="field"><label for="currentPassword">Current password</label><div class="input-wrap"><input type="password" id="currentPassword" /></div></div>
+              <div class="form-row-2">
+                <div class="field"><label for="newPassword">New password</label><div class="input-wrap"><input type="password" id="newPassword" /></div></div>
+                <div class="field"><label for="confirmNewPassword">Confirm new password</label><div class="input-wrap"><input type="password" id="confirmNewPassword" /></div></div>
+              </div>
+              <button type="submit" class="btn btn-primary">Update Password</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/settings.js"></script>
+</body>
+</html>
