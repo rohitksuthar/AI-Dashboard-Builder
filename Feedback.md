@@ -50,7 +50,7 @@ How can we improve this feature?
 
 **Description:** Dashboard chart does not update after changing the date range.
 
-**Steps to Reproduce:**
+***Steps to Reproduce:***
 1. Open the dashboard.
 2. Change the date range.
 3. Click Apply.
