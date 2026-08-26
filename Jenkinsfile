@@ -65,7 +65,7 @@ pipeline {
 
                 git add Feedback.txt
                 git commit -m "Update Jenkins build feedback"
-                git push origin main
+                git branch
             '''
         }
 
@@ -88,7 +88,7 @@ pipeline {
 
                 git add Feedback.txt
                 git commit -m "Update Jenkins build feedback"
-                git push origin main
+                git branch
             '''
         }
     }
