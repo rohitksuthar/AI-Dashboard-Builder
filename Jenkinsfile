@@ -59,14 +59,19 @@ pipeline {
                 echo Jenkins build completed successfully. >> Feedback.txt
             '''
 
-            bat '''
-                git config user.name "Jenkins"
-                git config user.email "rohitksuthar35@gmail.com"
+            withCredentials([gitUsernamePassword(
+                credentialsId: 'github-push',
+                gitToolName: 'Default'
+            )]) {
+                bat '''
+                    git config user.name "Jenkins"
+                    git config user.email "rohitksuthar35@gmail.com"
 
-                git add Feedback.txt
-                git commit -m "Update Jenkins build feedback"
-                git push origin HEAD:main
-            '''
+                    git add Feedback.txt
+                    git commit -m "Update Jenkins build feedback [skip ci]"
+                    git push origin HEAD:main
+                '''
+            }
         }
 
         failure {
@@ -82,14 +87,19 @@ pipeline {
                 echo Please check the Jenkins console output. >> Feedback.txt
             '''
 
-            bat '''
-                git config user.name "Jenkins"
-                git config user.email "rohitksuthar35@gmail.com"
+            withCredentials([gitUsernamePassword(
+                credentialsId: 'github-push',
+                gitToolName: 'Default'
+            )]) {
+                bat '''
+                    git config user.name "Jenkins"
+                    git config user.email "rohitksuthar35@gmail.com"
 
-                git add Feedback.txt
-                git commit -m "Update Jenkins build feedback"
-                git push origin HEAD:main
-            '''
+                    git add Feedback.txt
+                    git commit -m "Update Jenkins build feedback [skip ci]"
+                    git push origin HEAD:main
+                '''
+            }
         }
     }
 }
