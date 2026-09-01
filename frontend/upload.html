@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Upload Dataset — InsightBoard</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<div class="app-shell">
+  <div id="sidebar-root"></div>
+
+  <div style="flex:1;min-width:0;display:flex;flex-direction:column">
+    <div id="topnav-root"></div>
+
+    <main class="main-content" style="max-width:820px">
+      <div class="page-head">
+        <div>
+          <h1>Upload Your Business Dataset</h1>
+          <p>Drag &amp; drop your CSV file here or browse from your computer.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="upload-zone" id="uploadZone" tabindex="0" role="button" aria-label="Upload CSV file">
+          <div class="upload-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+          <h3>Upload Your Business Dataset</h3>
+          <p>Drag &amp; drop your CSV file here, or click to browse from your computer.</p>
+          <button type="button" class="btn btn-primary" id="chooseFileBtn">Choose CSV File</button>
+          <input type="file" id="fileInput" accept=".csv" class="hidden" />
+          <div class="upload-format-badges"><span class="format-badge">.CSV</span></div>
+        </div>
+
+        <div class="file-preview-card card hidden" id="filePreviewCard">
+          <div class="file-preview-icon"><i class="fa-solid fa-file-csv"></i></div>
+          <div class="file-preview-meta">
+            <div class="file-name" id="filePreviewName">—</div>
+            <div class="file-stats" id="filePreviewStats">—</div>
+          </div>
+          <button class="file-remove-btn" id="fileRemoveBtn" aria-label="Remove file"><i class="fa-solid fa-trash"></i></button>
+        </div>
+
+        <div class="upload-actions">
+          <button class="btn btn-primary" id="analyzeBtn" disabled><i class="fa-solid fa-magnifying-glass-chart"></i> Analyze Dataset</button>
+          <button class="btn btn-outline" id="useSampleBtn"><i class="fa-solid fa-database"></i> Use Sample Dataset</button>
+        </div>
+
+        <div class="sample-dataset-link">or start instantly with 120 rows of realistic sample business data</div>
+      </div>
+
+      <div class="card hidden" id="previewTableCard" style="margin-top:1.5rem">
+        <div class="card-head"><div><h3>Data Preview</h3><div class="card-sub" id="previewTableSub">First 8 rows</div></div></div>
+        <div class="table-wrap"><table class="data-table" id="previewTable"><thead></thead><tbody></tbody></table></div>
+      </div>
+
+      <!-- Analysis progress modal-esque panel -->
+      <div class="card hidden" id="progressCard" style="margin-top:1.5rem">
+        <div class="card-head"><div><h3>Generating Dashboard</h3><div class="card-sub">This runs entirely in your browser</div></div></div>
+        <div class="progress-steps" id="progressSteps">
+          <div class="progress-step" data-step="1"><div class="ps-dot">1</div><div class="ps-label">Uploading</div></div>
+          <div class="progress-step" data-step="2"><div class="ps-dot">2</div><div class="ps-label">Processing</div></div>
+          <div class="progress-step" data-step="3"><div class="ps-dot">3</div><div class="ps-label">Analyzing</div></div>
+          <div class="progress-step" data-step="4"><div class="ps-dot">4</div><div class="ps-label">Generating Dashboard</div></div>
+          <div class="progress-step" data-step="5"><div class="ps-dot">5</div><div class="ps-label">Complete</div></div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/upload.js"></script>
+</body>
+</html>
