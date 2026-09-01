@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Data Analysis — InsightBoard</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<div class="app-shell">
+  <div id="sidebar-root"></div>
+
+  <div style="flex:1;min-width:0;display:flex;flex-direction:column">
+    <div id="topnav-root"></div>
+
+    <main class="main-content">
+
+      <div id="emptyStateWrap" class="card hidden">
+        <div class="empty-state">
+          <div class="empty-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+          <h3>Nothing to analyze yet</h3>
+          <p>Upload a CSV or use the sample dataset to see a full column-by-column breakdown.</p>
+          <a href="upload.html" class="btn btn-primary">Upload Dataset</a>
+        </div>
+      </div>
+
+      <div id="analysisContent" class="hidden">
+        <div class="page-head">
+          <div>
+            <h1>Dataset Analysis</h1>
+            <p>A column-by-column profile of <span id="datasetNameLabel">your dataset</span>.</p>
+          </div>
+        </div>
+
+        <div class="stat-grid">
+          <div class="stat-card"><div class="stat-value" id="statRows">0</div><div class="stat-label">Total Rows</div></div>
+          <div class="stat-card"><div class="stat-value" id="statCols">0</div><div class="stat-label">Total Columns</div></div>
+          <div class="stat-card"><div class="stat-value" id="statNumeric">0</div><div class="stat-label">Numeric Columns</div></div>
+          <div class="stat-card"><div class="stat-value" id="statText">0</div><div class="stat-label">Text Columns</div></div>
+          <div class="stat-card"><div class="stat-value" id="statMissing">0</div><div class="stat-label">Missing Values</div></div>
+          <div class="stat-card"><div class="stat-value" id="statDuplicates">0</div><div class="stat-label">Duplicate Rows</div></div>
+        </div>
+
+        <div class="chart-grid">
+          <div class="card">
+            <div class="card-head"><div><h3>Column Information</h3><div class="card-sub">Type, missing values and unique counts</div></div></div>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Column Name</th><th>Data Type</th><th>Missing Values</th><th>Unique Values</th></tr></thead>
+                <tbody id="columnInfoBody"></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card chart-card">
+            <div class="card-head"><div><h3>Missing Values by Column</h3><div class="card-sub">Lower is better</div></div></div>
+            <div class="chart-canvas-wrap"><canvas id="missingValuesChart"></canvas></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><div><h3>Data Preview</h3><div class="card-sub">First 15 rows, scroll to see more columns</div></div></div>
+          <div class="table-wrap" style="max-height:420px;overflow-y:auto">
+            <table class="data-table" id="dataPreviewTable"><thead></thead><tbody></tbody></table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/analysis.js"></script>
+</body>
+</html>
